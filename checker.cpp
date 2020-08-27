@@ -8,13 +8,9 @@ bool IsInsideLimit(float value,int upperLimit,int lowerLimit)
   
 bool vitalsAreOk(float bpm, float spo2, float respRate) {
   
-    return(IsInsideLimit(bpm,70,150));
+    return(IsInsideLimit(bpm,70,150) && IsInsideLimit(spo2,90,100) && IsInsideLimit(respRate,30,95));
   
-    return(IsInsideLimit(spo2,90,100);
-   
-    return (IsInsideLimit(respRate,30,95);
-  
-  return true;
+    
 }
 
 int main() {
