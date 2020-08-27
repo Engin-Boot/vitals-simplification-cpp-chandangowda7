@@ -2,7 +2,7 @@
 
 bool IsInsideLimit(float value,int upperLimit,int lowerLimit)
 {
-  return(value>=lowerLimit && value<=upperLimit);
+  return!(value>=lowerLimit && value<=upperLimit);
 }
   
   
