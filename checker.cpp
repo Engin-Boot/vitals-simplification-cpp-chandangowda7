@@ -1,6 +1,6 @@
 #include <assert.h>
 
-bool IsInsideLimit(float value,int upperLimit,int lowerLimit)
+bool IsInsideLimit(float value,int lowerLimit,int upperLimit)
 {
   return(value>=lowerLimit && value<=upperLimit);
 }
