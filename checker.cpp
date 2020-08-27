@@ -1,21 +1,18 @@
 #include <assert.h>
-bool bpmcheck( float bpm){
-  return(!(bpm < 70 || bpm > 150));
-    }
-bool spo2check(float spo2){
-  return(!(spo2 < 90));
+
+bool IsInsideLimit(float value,int upperLimit,int lowerLimit)
+{
+  return(value>=lowerLimit && value<=upperLimit)
 }
-bool respRatecheck(float respRate){
-  return(!(respRate < 30 || respRate > 95));
-}
+  
   
 bool vitalsAreOk(float bpm, float spo2, float respRate) {
   
-    return(bpmcheck(bpm));
+    return(IsInsideLimit(bpm,70,150));
   
-    return(spo2check(spo2));
+    return(IsInsideLimit(spo2,90,100);
    
-    return (respRatecheck(respRate));
+    return (IsInsideLimit(respRate,30,95);
   
   return true;
 }
