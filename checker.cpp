@@ -22,13 +22,13 @@ class AlertWithSound:public Alert
 
 bool IsInsideLimit(float value,int lowerLimit,int upperLimit,const char* vitalName)
 {
-  if(value>=lowerLimit && value<=upperLimit)
+  if(!(value>=lowerLimit && value<=upperLimit))
   {
      AlertWithMsg obj;
         obj.raiseAlert(vitalName,"out of range");
-    return true;
+    return false;
   }
-  return false;
+  return true;
 }
   
   
