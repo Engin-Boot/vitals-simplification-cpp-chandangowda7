@@ -1,4 +1,23 @@
 #include <assert.h>
+class Alert
+{
+}
+class AlertWithMsg:public Alert
+{
+  public:
+  void raiseAlert(const char* vitalName,const char* level)
+  {
+    std::cout<<"SMS:"<<vitalName<<""<<level;
+  }
+}
+class AlertWithSound:public Alert
+{
+  public:
+  void raiseAlert(const char* vitalName,const char* level)
+  {
+    std::cout<<"SMS:"<<vitalName<<""<<level;
+  }
+}
 
 bool IsInsideLimit(float value,int lowerLimit,int upperLimit)
 {
@@ -7,8 +26,17 @@ bool IsInsideLimit(float value,int lowerLimit,int upperLimit)
   
   
 bool vitalsAreOk(float bpm, float spo2, float respRate) {
-  
-    return(IsInsideLimit(bpm,70,150) && IsInsideLimit(spo2,90,100) && IsInsideLimit(respRate,30,95));
+  bool isbpmnormal=IsInsideLimit(bpm,70,150);
+  bool issp02normal=IsInsideLimit(spo2,90,100);
+  bool isrespnormal=IsInsideLimit(respRate,30,95);
+    if(isbpmnormal && issp02normal && isrespnormal)
+    {
+      if(!isbpmnormal)
+      {
+        AlertWithMsg obj=new AlertWithMsg();
+        obj.raiseAlert("bpm","out of range");
+      }
+    }
   
     
 }
