@@ -20,26 +20,22 @@ class AlertWithSound:public Alert
   }
 };
 
-bool IsInsideLimit(float value,int lowerLimit,int upperLimit)
+bool IsInsideLimit(float value,int lowerLimit,int upperLimit,const char* vitalName)
 {
-  return(value>=lowerLimit && value<=upperLimit);
+  if(value>=lowerLimit && value<=upperLimit)
+  {
+     AlertWithMsg obj;
+        obj.raiseAlert(vitalName,"out of range");
+  }
 }
   
   
 bool vitalsAreOk(float bpm, float spo2, float respRate) {
-  bool isbpmnormal=IsInsideLimit(bpm,70,150);
-  bool issp02normal=IsInsideLimit(spo2,90,100);
-  bool isrespnormal=IsInsideLimit(respRate,30,95);
-    if(!(isbpmnormal && issp02normal && isrespnormal))
-    {
-      if(!isbpmnormal)
-      {
-        AlertWithMsg obj;
-        obj.raiseAlert("bpm","out of range");
-      }
-      return false;
-    }
-  return true;
+  bool isbpmnormal=IsInsideLimit(bpm,70,150,"bpm");
+  bool issp02normal=IsInsideLimit(spo2,90,100,"spo2");
+  bool isrespnormal=IsInsideLimit(respRate,30,95"respRate");
+    return(isbpmnormal && issp02normal && isrespnormal);
+   
   
     
 }
