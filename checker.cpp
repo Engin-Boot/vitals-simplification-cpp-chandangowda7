@@ -30,7 +30,7 @@ bool vitalsAreOk(float bpm, float spo2, float respRate) {
   bool isbpmnormal=IsInsideLimit(bpm,70,150);
   bool issp02normal=IsInsideLimit(spo2,90,100);
   bool isrespnormal=IsInsideLimit(respRate,30,95);
-    if(isbpmnormal && issp02normal && isrespnormal)
+    if(!(isbpmnormal && issp02normal && isrespnormal))
     {
       if(!isbpmnormal)
       {
