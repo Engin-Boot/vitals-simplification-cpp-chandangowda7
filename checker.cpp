@@ -35,7 +35,7 @@ bool IsInsideLimit(float value,int lowerLimit,int upperLimit,const char* vitalNa
 bool vitalsAreOk(float bpm, float spo2, float respRate) {
   bool isbpmnormal=IsInsideLimit(bpm,70,150,"bpm");
   bool issp02normal=IsInsideLimit(spo2,90,100,"spo2");
-  bool isrespnormal=IsInsideLimit(respRate,30,95"respRate");
+  bool isrespnormal=IsInsideLimit(respRate,30,95,"respRate");
     return(isbpmnormal && issp02normal && isrespnormal);
    
   
