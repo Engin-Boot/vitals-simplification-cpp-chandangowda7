@@ -26,7 +26,9 @@ bool IsInsideLimit(float value,int lowerLimit,int upperLimit,const char* vitalNa
   {
      AlertWithMsg obj;
         obj.raiseAlert(vitalName,"out of range");
+    return true;
   }
+  return false;
 }
   
   
